@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVVALENAREDE REDE SOCIAL 2025</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.5)),
+                        url('https://example.com/bandeira-brasil.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            color: #009c3b;
+            font-size: 2.5em;
+            text-shadow: 2px 2px #002776;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-content {
+            flex: 3;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .side-buttons {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .side-button {
+            padding: 15px;
+            background-color: #FFDF00;
+            border: 2px solid #009C3B;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .registration-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .chat-box {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #009C3B;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="main-title">TVVALENAREDE REDE SOCIAL 2025</h1>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="registration-box">
+                <h2>Cadastro (Limite: 50 pessoas)</h2>
+                <form id="registrationForm">
+                    <input type="text" placeholder="Nome" required>
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="password" placeholder="Senha" required>
+                    <input type="file" accept="image/*">
+                    <button type="submit">Cadastrar</button>
+                </form>
+            </div>
+
+            <div>
+                <button>Achar Fotos</button>
+                <button>Achar Comentários</button>
+            </div>
+
+            <h3>Chat</h3>
+            <div class="chat-box" id="chatBox"></div>
+            <input type="text" placeholder="Digite sua mensagem" id="messageInput">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+
+        <div class="side-buttons">
+            <button class="side-button">1 MADE CENTER</button>
+            <button class="side-button">2 J.E.C.S</button>
+            <button class="side-button">3 BAR DO OSMAR</button>
+            <button class="side-button">4 SERGUIS ALIANÇAS</button>
+            <button class="side-button">5 SERGINHOS PNEUS</button>
+            <button class="side-button">6 CASA 3 IRMÃOS</button>
+            <button class="side-button">7 CASA DO NORDESTINO</button>
+            <button class="side-button">8 FUTEBOL AO VIVO</button>
+            <button class="side-button">9 ARQUIVO TVVALENAREDE</button>
+            <button class="side-button">10 VÍDEOS REELS</button>
+            <button class="side-button">11 FACEBOOK</button>
+            <button class="side-button">12 INSTAGRAM</button>
+            <button class="side-button">13 WHATSAPP</button>
+            <button class="side-button">14 YOUTUBE</button>
+        </div>
+    </div>
+
+    <script>
+        let users = [];
+        
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if(users.length >= 50) {
+                alert('Limite de cadastros atingido!');
+                return;
+            }
+            // Adicionar lógica de cadastro aqui
+            users.push({
+                name: this[0].value,
+                email: this[1].value,
+                password: this[2].value
+            });
+            alert('Cadastro realizado com sucesso!');
+            this.reset();
+        });
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const chatBox = document.getElementById('chatBox');
+            chatBox.innerHTML += `<p>${input.value}</p>`;
+            input.value = '';
+        }
+    </script>
+</body>
+</html>
